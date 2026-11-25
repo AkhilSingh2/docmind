@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), Georgia, serif;
+  --color-paper: var(--paper);
+  --color-panel: var(--panel);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-ember: var(--ember);
+  --color-mark: var(--mark);
+}
+
+:root {
+  --paper: #f3efe6;
+  --panel: rgba(255, 252, 247, 0.86);
+  --ink: #1c1714;
+  --muted: #6d645c;
+  --line: #e4d9c8;
+  --accent: #0f6f68;
+  --accent-ink: #f3fffd;
+  --ember: #b24b2a;
+  --mark: #f4d78a;
+  color-scheme: light;
+}
+
+.dark {
+  --paper: #100e0c;
+  --panel: rgba(28, 25, 22, 0.88);
+  --ink: #f6f1e8;
+  --muted: #b7aea3;
+  --line: #312c27;
+  --accent: #7ee0d6;
+  --accent-ink: #06211f;
+  --ember: #f0a184;
+  --mark: #6a5424;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+html, body { min-height: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background:
+    radial-gradient(900px 420px at -10% -10%, color-mix(in oklab, var(--accent) 22%, transparent), transparent 55%),
+    radial-gradient(700px 380px at 110% 0%, color-mix(in oklab, var(--ember) 18%, transparent), transparent 50%),
+    var(--paper);
+}
+
+button, textarea, input { font: inherit; color: inherit; }
+
+button { cursor: pointer; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+::selection { background: var(--mark); color: var(--ink); }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.glass {
+  background: var(--panel);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--line);
+}
+
+.answer {
+  font-family: var(--font-serif);
+  font-size: 1.18rem;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+}
+
+.cite {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.35rem;
+  height: 1.35rem;
+  margin-inline: 0.15rem;
+  padding: 0 0.35rem;
+  border: 0;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--ember) 18%, var(--panel));
+  color: var(--ember);
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 650;
+  vertical-align: 0.2em;
+}
+
+.cite:hover { background: var(--ember); color: white; }
+.dark .cite:hover { color: #1c1714; }
+
+.mark {
+  background: var(--mark);
+  color: inherit;
+  border-radius: 0.2rem;
+  padding: 0 0.15rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
