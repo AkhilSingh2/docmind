@@ -159,7 +159,7 @@ function ChatSession({
             {demo ? (
               <>
                 <span className="md:hidden">Demo mode</span>
-                <span className="hidden md:inline">Demo mode · no API key</span>
+                <span className="hidden md:inline">{health?.store === "browser" ? "Demo mode · sample data" : "Demo mode · no API key"}</span>
               </>
             ) : (
               `Live · ${health?.provider}`

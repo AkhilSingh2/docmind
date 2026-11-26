@@ -6,6 +6,8 @@ DocMind is a portfolio research agent for [Akhilendra Singh](https://github.com/
 
 It runs with **zero API keys**. Demo mode uses a deterministic embedder and an extractive answerer, so a recruiter can clone the repo and try the full loop on a seeded library of interview notes.
 
+**Live demo:** [akhilsingh2.github.io/docmind](https://akhilsingh2.github.io/docmind/). The hosted copy is a static build: retrieval, ranking and the demo agent run in your browser on the sample library, so PDF parsing and URL ingest need a local run. Build it with `STATIC_DEMO=true` (see `lib/demo`).
+
 ![DocMind on desktop: library, a cited answer, and the source passage](docs/images/desktop-research.png)
 
 ![DocMind on a phone](docs/images/mobile-research.png)
